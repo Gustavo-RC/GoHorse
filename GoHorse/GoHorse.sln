@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoHorseClassLibrary", "GoHorseClassLibrary\GoHorseClassLibrary.csproj", "{12B2F02C-CDFD-463F-BDC3-600506B0EE90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoHorseDAL", "GoHorseDAL\GoHorseDAL.csproj", "{B1DD58A6-E991-411A-B340-C42DD4E15FA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12B2F02C-CDFD-463F-BDC3-600506B0EE90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12B2F02C-CDFD-463F-BDC3-600506B0EE90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12B2F02C-CDFD-463F-BDC3-600506B0EE90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12B2F02C-CDFD-463F-BDC3-600506B0EE90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1DD58A6-E991-411A-B340-C42DD4E15FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1DD58A6-E991-411A-B340-C42DD4E15FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1DD58A6-E991-411A-B340-C42DD4E15FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1DD58A6-E991-411A-B340-C42DD4E15FA3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99B97083-7FFE-4204-B230-BF497F1E014C}
+	EndGlobalSection
+EndGlobal
