@@ -16,6 +16,12 @@ namespace GoHorseClassLibrary
 
 		private List<Endereco> enderecos;
 
+		public Pessoa()
+		{
+			telefones = new List<Telefone>();
+			enderecos = new List<Endereco>();
+		}
+
 		public string Nome
 		{
 			get => nome;
