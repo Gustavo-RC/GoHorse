@@ -4,34 +4,30 @@ namespace GoHorseClassLibrary
 {
 	public class Cliente : Pessoa
 	{
-		private List<Cartao> Cartoes;
+		private int clienteId;
 
-		private List<Animal> Animais;
+		private List<Cartao> cartoes;
 
-		private Animal animal;
+		private List<Animal> animais;
 
-		private Cartao cartao;
-
-		public void getCartoes()
+		public int ClienteId
 		{
-
+			get => clienteId;
+			set => clienteId = value;
 		}
 
-		public void getAnimais()
+		public List<Cartao> Cartoes
 		{
-
+			get => cartoes;
+			set => cartoes = value;
 		}
 
-		public void setCartoes()
+		public List<Animal> Animais
 		{
-
+			get => animais;
+			set => animais = value;
 		}
-
-		public void setAnimais()
-		{
-
-		}
-
+		
 	}
 
 }

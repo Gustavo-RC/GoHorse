@@ -4,78 +4,52 @@ namespace GoHorseClassLibrary
 {
 	public class Pessoa
 	{
-		private string Nome;
+		private string nome;
 
-		private string Cpf;
+		private string cpf;
 
-		private List<Telefone> Telefones;
+		private List<Telefone> telefones;
 
-		private string DataNascimento;
+		private string dataNascimento;
 
-		private string Email;
+		private string email;
 
-		private List<Endereco> Enderecos;
+		private List<Endereco> enderecos;
 
-		public int PessoaId { get; set; }
-
-		public void getNome()
+		public string Nome
 		{
-
+			get => nome;
+			set => nome = value;
 		}
 
-		public void getCpf()
+		public string Cpf
 		{
-
+			get => cpf;
+			set => cpf = value;
 		}
 
-		public void getTelefones()
+		public List<Telefone> Telefones
 		{
-
+			get => telefones;
+			set => telefones = value;
 		}
 
-		public void getDataNascimento()
+		public string DataNascimento
 		{
-
+			get => dataNascimento;
+			set => dataNascimento = value;
 		}
 
-		public void getEmail()
+		public string Email
 		{
-
+			get => email;
+			set => email = value;
 		}
 
-		public void getEnderecos()
+		public List<Endereco> Enderecos
 		{
-
-		}
-
-		public void setNome()
-		{
-
-		}
-
-		public void setCpf()
-		{
-
-		}
-
-		public void setTelefones()
-		{
-
-		}
-
-		public void setDataNascimento()
-		{
-
-		}
-
-		public void setEmail()
-		{
-
-		}
-
-		public void setEnderecos()
-		{
-
+			get => enderecos;
+			set => enderecos = value;
 		}
 
 	}

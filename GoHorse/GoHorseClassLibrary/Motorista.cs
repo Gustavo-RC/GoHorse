@@ -4,6 +4,8 @@ namespace GoHorseClassLibrary
 {
 	public class Motorista : Pessoa
 	{
+		private int motoristaId;
+
 		private string NRegistroCNH;
 
 		private string ValidadeCNH;
@@ -14,7 +16,11 @@ namespace GoHorseClassLibrary
 
 		private List<Veiculo> Veiculos;
 
-		public int MotoristaId { get; set; }
+		public int MotoristaId
+		{
+			get => motoristaId;
+			set => motoristaId = value;
+		}
 		public void getNRegistroCNH()
 		{
 

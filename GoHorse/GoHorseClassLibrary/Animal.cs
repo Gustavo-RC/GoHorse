@@ -5,68 +5,62 @@ namespace GoHorseClassLibrary
 {
 	public class Animal
 	{
+		private int animalId;
 
-		private string NRegistro;
+		private string nRegistro;
 
-		private string Nome;
+		private string nome;
 
-		private string Raca;
+		private string raca;
 
-		private string DataNascimento;
+		private string dataNascimento;
 
-		private string Descricao;
+		private string descricao;
 
-		public int AnimalId { get; set; }
+		private Cliente dono;
 
-		public void getNRegistro()
+		public int AnimalId
 		{
-
+			get => animalId;
+			set => animalId = value;
 		}
 
-		public void getNome()
+		public string NRegistro
 		{
-
+			get => nRegistro;
+			set => nRegistro = value;
 		}
 
-		public void getRaca()
+		public string Nome
 		{
-
+			get => nome;
+			set => nome = value;
 		}
 
-		public void getDataNascimento()
+		public string Raca
 		{
-
+			get => raca;
+			set => raca = value;
 		}
 
-		public void getDescricao()
+		public string DataNascimento
 		{
-
+			get => dataNascimento;
+			set => dataNascimento = value;
 		}
 
-		public void setNRegistro()
+		public string Descricao
 		{
-
+			get => descricao;
+			set => descricao = value;
 		}
 
-		public void setNome()
+		public Cliente Dono
 		{
-
+			get => dono;
+			set => dono = value;
 		}
 
-		public void setRaca()
-		{
-
-		}
-
-		public void setDataNascimento()
-		{
-
-		}
-
-		public void setDescricao()
-		{
-
-		}
 
 	}
 
