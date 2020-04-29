@@ -10,6 +10,12 @@ namespace GoHorseClassLibrary
 
 		private List<Animal> animais;
 
+		public Cliente()
+		{
+			animais = new List<Animal>();
+			cartoes = new List<Cartao>();
+		}
+
 		public int ClienteId
 		{
 			get => clienteId;
