@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoHorseClassLibrary", "GoHorseClassLibrary\GoHorseClassLibrary.csproj", "{12B2F02C-CDFD-463F-BDC3-600506B0EE90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoHorseClassLibrary", "GoHorseClassLibrary\GoHorseClassLibrary.csproj", "{12B2F02C-CDFD-463F-BDC3-600506B0EE90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoHorseDAL", "GoHorseDAL\GoHorseDAL.csproj", "{B1DD58A6-E991-411A-B340-C42DD4E15FA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoHorseDAL", "GoHorseDAL\GoHorseDAL.csproj", "{B1DD58A6-E991-411A-B340-C42DD4E15FA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoHorseWeb", "GoHorseWeb\GoHorseWeb.csproj", "{2D329090-A1B4-4C28-A5AE-A0A769C74CC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B1DD58A6-E991-411A-B340-C42DD4E15FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1DD58A6-E991-411A-B340-C42DD4E15FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1DD58A6-E991-411A-B340-C42DD4E15FA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D329090-A1B4-4C28-A5AE-A0A769C74CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D329090-A1B4-4C28-A5AE-A0A769C74CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D329090-A1B4-4C28-A5AE-A0A769C74CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D329090-A1B4-4C28-A5AE-A0A769C74CC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
