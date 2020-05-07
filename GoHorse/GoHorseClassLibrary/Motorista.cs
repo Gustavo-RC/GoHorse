@@ -23,7 +23,7 @@ namespace GoHorseClassLibrary {
 
 		}
 
-		public new int Id{
+		public int Id{
 			get{
 				return id;
 			}
