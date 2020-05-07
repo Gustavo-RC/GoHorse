@@ -1,72 +1,78 @@
 using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
 
-namespace GoHorseClassLibrary
-{
-	public class Veiculo
-	{
-		private Motorista Motorista;
 
-		private string Marca;
 
-		private string Modelo;
+namespace GoHorseClassLibrary {
+	public class Veiculo {
 
-		private int AnoFabricacao;
+		private int id;
+		private Motorista motorista;
+		private string marca = "";
+		private string modelo = "";
+		private string anoFabricacao = "";
+		private string placa = "";
 
-		private string Placa;
-
-		private Viagem viagem;
-
-		public int VeiculoId { get; set; }
-		public void getMotorista()
-		{
+		public Veiculo(){
 
 		}
 
-		public void getMarca()
-		{
-
+		public int Id{
+			get{
+				return id;
+			}
+			set{
+				id = value;
+			}
 		}
 
-		public void getModelo()
-		{
-
+		public Motorista Motorista{
+			get{
+				return motorista;
+			}
+			set{
+				motorista = value;
+			}
 		}
 
-		public void getAnoFabricacao()
-		{
-
+		public string Marca{
+			get{
+				return marca;
+			}
+			set{
+				marca = value;
+			}
 		}
 
-		public void getPlaca()
-		{
-
+		public string Modelo{
+			get{
+				return modelo;
+			}
+			set{
+				modelo = value;
+			}
 		}
 
-		public void setMotorista()
-		{
-
+		public string AnoFabricacao{
+			get{
+				return anoFabricacao;
+			}
+			set{
+				anoFabricacao = value;
+			}
 		}
 
-		public void setMarca()
-		{
-
-		}
-
-		public void setModelo()
-		{
-
-		}
-
-		public void setAnoFabricacao()
-		{
-
-		}
-
-		public void setPlaca()
-		{
-
+		public string Placa{
+			get{
+				return placa;
+			}
+			set{
+				placa = value;
+			}
 		}
 
 	}
 
-}
+}//end namespace GoHorseClassLibrary

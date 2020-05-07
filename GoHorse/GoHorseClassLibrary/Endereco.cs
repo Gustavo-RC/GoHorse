@@ -1,96 +1,108 @@
 using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
 
-namespace GoHorseClassLibrary
-{
-	public class Endereco
-	{
-		private Pessoa Pessoa;
 
-		private string Rua;
 
-		private int Numero;
+namespace GoHorseClassLibrary {
+	public class Endereco {
 
-		private string Bairro;
-
-		private string Cidade;
-
-		private string Estado;
-
-		private string Cep;
-
+		private int id;
 		private Viagem viagem;
+		private string tipo = "";
+		private string rua = "";
+		private string numero = "";
+		private string bairro = "";
+		private string cidade = "";
+		private string estado = "";
+		private string cep = "";
 
-		public int EnderecoId { get; set; }
-		public void getPessoa()
-		{
-
-		}
-
-		public void getRua()
-		{
-
-		}
-
-		public void getNumero()
-		{
+		public Endereco(){
 
 		}
 
-		public void getBairro()
-		{
-
+		public int Id{
+			get{
+				return id;
+			}
+			set{
+				id = value;
+			}
 		}
 
-		public void getCidade()
-		{
-
+		public Viagem Viagem{
+			get{
+				return viagem;
+			}
+			set{
+				viagem = value;
+			}
 		}
 
-		public void getEstado()
-		{
-
+		public string Tipo{
+			get{
+				return tipo;
+			}
+			set{
+				tipo = value;
+			}
 		}
 
-		public void getCep()
-		{
-
+		public string Rua{
+			get{
+				return rua;
+			}
+			set{
+				rua = value;
+			}
 		}
 
-		public void setPessoa()
-		{
-
+		public string Numero{
+			get{
+				return numero;
+			}
+			set{
+				numero = value;
+			}
 		}
 
-		public void setRua()
-		{
-
+		public string Bairro{
+			get{
+				return bairro;
+			}
+			set{
+				bairro = value;
+			}
 		}
 
-		public void setNumero()
-		{
-
+		public string Cidade{
+			get{
+				return cidade;
+			}
+			set{
+				cidade = value;
+			}
 		}
 
-		public void setBairro()
-		{
-
+		public string Estado{
+			get{
+				return estado;
+			}
+			set{
+				estado = value;
+			}
 		}
 
-		public void setCidade()
-		{
-
-		}
-
-		public void setEstado()
-		{
-
-		}
-
-		public void setCep()
-		{
-
+		public string Cep{
+			get{
+				return cep;
+			}
+			set{
+				cep = value;
+			}
 		}
 
 	}
 
-}
+}//end namespace GoHorseClassLibrary

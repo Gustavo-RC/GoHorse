@@ -1,76 +1,82 @@
+using System;
 using System.Collections.Generic;
+using System.Text;
+using System.IO;
 
-namespace GoHorseClassLibrary
-{
-	public class Motorista : Pessoa
-	{
-		private int motoristaId;
 
-		private string NRegistroCNH;
 
-		private string ValidadeCNH;
+using GoHorseClassLibrary;
+namespace GoHorseClassLibrary {
+	public class Motorista : Pessoa {
 
-		private string CategoriaCNH;
+		private int id;
+		private string nRegistroCnh = "";
+		private string validadeCnh = "";
+		private string categoriaCnh = "";
+		private List<Conta> contas;
+		private List<Veiculo> veiculos;
 
-		private List<Conta> Conta;
+		public Motorista(){
 
-		private List<Veiculo> Veiculos;
-
-		public int MotoristaId
-		{
-			get => motoristaId;
-			set => motoristaId = value;
-		}
-		public void getNRegistroCNH()
-		{
+			contas = new List<Conta>();
+			veiculos = new List<Veiculo>();
 
 		}
 
-		public void getValidadeCNH()
-		{
-
+		public new int Id{
+			get{
+				return id;
+			}
+			set{
+				id = value;
+			}
 		}
 
-		public void getCategoriaCNH()
-		{
-
+		public string NRegistroCnh{
+			get{
+				return nRegistroCnh;
+			}
+			set{
+				nRegistroCnh = value;
+			}
 		}
 
-		public void getConta()
-		{
-
+		public string ValidadeCnh{
+			get{
+				return validadeCnh;
+			}
+			set{
+				validadeCnh = value;
+			}
 		}
 
-		public void getVeiculos()
-		{
-
+		public string CategoriaCnh{
+			get{
+				return categoriaCnh;
+			}
+			set{
+				categoriaCnh = value;
+			}
 		}
 
-		public void setNRegistroCNH()
-		{
-
+		public List<Conta> Contas{
+			get{
+				return contas;
+			}
+			set{
+				contas = value;
+			}
 		}
 
-		public void setValidadeCNH()
-		{
-
-		}
-
-		public void setCategoriaCNH()
-		{
-
-		}
-
-		public void setConta()
-		{
-
-		}
-
-		public void setVeiculos()
-		{
-
+		public List<Veiculo> Veiculos{
+			get{
+				return veiculos;
+			}
+			set{
+				veiculos = value;
+			}
 		}
 
 	}
 
-}
+}//end namespace GoHorseClassLibrary

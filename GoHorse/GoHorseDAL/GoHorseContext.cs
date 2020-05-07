@@ -17,6 +17,8 @@ namespace GoHorseDAL
         public DbSet<Telefone> Telefones { get; set; }
         public DbSet<Veiculo> Veiculos { get; set; }
         public DbSet<Viagem> Viagens { get; set; }
+        public DbSet<Pagamento> Pagamentos { get; set; }
+        public DbSet<Pessoa> Pessoas { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

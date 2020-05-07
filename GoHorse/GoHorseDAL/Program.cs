@@ -18,7 +18,7 @@ namespace GoHorseDAL
 
             //// 2. Estabelecer os relacionamentos
             //cliente.Animais.Add(animal);
-            //animal.Dono = cliente;
+            //animal.Cliente = cliente;
 
             //// 3. Criar o contexto para gravar na base de dados
 
@@ -35,8 +35,8 @@ namespace GoHorseDAL
             {
                 Console.WriteLine("Nome: " + cliente.Nome);
 
-                var animais = from a in ctx.Animais 
-                              where a.Dono.ClienteId == cliente.ClienteId 
+                var animais = from a in ctx.Animais
+                              where a.Cliente.Cpf == cliente.Cpf
                               select a;
 
                 foreach (var animal in animais)

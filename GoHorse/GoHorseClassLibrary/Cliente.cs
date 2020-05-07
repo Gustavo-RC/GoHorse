@@ -1,39 +1,52 @@
+using System;
 using System.Collections.Generic;
+using System.Text;
+using System.IO;
 
-namespace GoHorseClassLibrary
-{
-	public class Cliente : Pessoa
-	{
-		private int clienteId;
 
+
+using GoHorseClassLibrary;
+namespace GoHorseClassLibrary {
+	public class Cliente : Pessoa {
+
+		private int id;
 		private List<Cartao> cartoes;
-
 		private List<Animal> animais;
 
-		public Cliente()
-		{
+		public Cliente(){
+
 			animais = new List<Animal>();
 			cartoes = new List<Cartao>();
+
 		}
 
-		public int ClienteId
-		{
-			get => clienteId;
-			set => clienteId = value;
+		public new int Id{
+			get{
+				return id;
+			}
+			set{
+				id = value;
+			}
 		}
 
-		public List<Cartao> Cartoes
-		{
-			get => cartoes;
-			set => cartoes = value;
+		public List<Cartao> Cartoes{
+			get{
+				return cartoes;
+			}
+			set{
+				cartoes = value;
+			}
 		}
 
-		public List<Animal> Animais
-		{
-			get => animais;
-			set => animais = value;
+		public List<Animal> Animais{
+			get{
+				return animais;
+			}
+			set{
+				animais = value;
+			}
 		}
-		
+
 	}
 
-}
+}//end namespace GoHorseClassLibrary

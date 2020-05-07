@@ -1,62 +1,68 @@
 using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
 
-namespace GoHorseClassLibrary
-{
-	public class Conta
-	{
-		private Motorista Motorista;
 
-		private int Agencia;
 
-		private string NConta;
+namespace GoHorseClassLibrary {
+	public class Conta {
 
-		private string Banco;
-
+		private int id;
 		private Motorista motorista;
+		private string agencia = "";
+		private string nConta = "";
+		private string banco = "";
 
-		private PagamentoMotorista pagamentoMotorista;
-
-		public int ContaId { get; set; }
-		public void getMotorista()
-		{
-
-		}
-
-		public void getAgencia()
-		{
+		public Conta(){
 
 		}
 
-		public void getNConta()
-		{
-
+		public int Id{
+			get{
+				return id;
+			}
+			set{
+				id = value;
+			}
 		}
 
-		public void getBanco()
-		{
-
+		public Motorista Motorista{
+			get{
+				return motorista;
+			}
+			set{
+				motorista = value;
+			}
 		}
 
-		public void setMotorista()
-		{
-
+		public string Agencia{
+			get{
+				return agencia;
+			}
+			set{
+				agencia = value;
+			}
 		}
 
-		public void setAgencia()
-		{
-
+		public string NConta{
+			get{
+				return nConta;
+			}
+			set{
+				nConta = value;
+			}
 		}
 
-		public void setNConta()
-		{
-
-		}
-
-		public void setBanco()
-		{
-
+		public string Banco{
+			get{
+				return banco;
+			}
+			set{
+				banco = value;
+			}
 		}
 
 	}
 
-}
+}//end namespace GoHorseClassLibrary

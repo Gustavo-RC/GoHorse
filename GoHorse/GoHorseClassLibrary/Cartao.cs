@@ -1,60 +1,78 @@
 using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
 
-namespace GoHorseClassLibrary
-{
-	public class Cartao
-	{
-		private string Nome;
 
-		private string NCartao;
 
-		private string Validade;
+namespace GoHorseClassLibrary {
+	public class Cartao {
 
-		private int CV;
+		private int id;
+		private string nome = "";
+		private string nCartao = "";
+		private string validade = "";
+		private int cv = 0;
+		private Cliente cliente;
 
-		private MetodoDePagamento metodoDePagamento;
-
-		public int CartaoId { get; set; }
-		public void getNome()
-		{
-
-		}
-
-		public void getNCartao()
-		{
+		public Cartao(){
 
 		}
 
-		public void getValidade()
-		{
-
+		public int Id{
+			get{
+				return id;
+			}
+			set{
+				id = value;
+			}
 		}
 
-		public void getCV()
-		{
-
+		public string Nome{
+			get{
+				return nome;
+			}
+			set{
+				nome = value;
+			}
 		}
 
-		public void setNome()
-		{
-
+		public string NCartao{
+			get{
+				return nCartao;
+			}
+			set{
+				nCartao = value;
+			}
 		}
 
-		public void setNCartao()
-		{
-
+		public string Validade{
+			get{
+				return validade;
+			}
+			set{
+				validade = value;
+			}
 		}
 
-		public void setValidade()
-		{
-
+		public int Cv{
+			get{
+				return cv;
+			}
+			set{
+				cv = value;
+			}
 		}
 
-		public void setCV()
-		{
-
+		public Cliente Cliente{
+			get{
+				return cliente;
+			}
+			set{
+				cliente = value;
+			}
 		}
 
 	}
 
-}
+}//end namespace GoHorseClassLibrary

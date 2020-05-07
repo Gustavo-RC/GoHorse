@@ -1,63 +1,90 @@
+using System;
 using System.Collections.Generic;
+using System.Text;
+using System.IO;
 
-namespace GoHorseClassLibrary
-{
-	public class Pessoa
-	{
-		private string nome;
 
-		private string cpf;
 
+using GoHorseClassLibrary;
+namespace GoHorseClassLibrary {
+	public class Pessoa {
+
+		private int id;
+		private string nome = "";
+		private string cpf = "";
 		private List<Telefone> telefones;
+		private string dataNascimento = "";
+		private string email = "";
+		private Endereco endereco;
 
-		private string dataNascimento;
+		public Pessoa(){
 
-		private string email;
-
-		private List<Endereco> enderecos;
-
-		public Pessoa()
-		{
 			telefones = new List<Telefone>();
-			enderecos = new List<Endereco>();
 		}
 
-		public string Nome
-		{
-			get => nome;
-			set => nome = value;
+		public int PessoaId{
+			get{
+				return id;
+			}
+			set{
+				id = value;
+			}
 		}
 
-		public string Cpf
-		{
-			get => cpf;
-			set => cpf = value;
+		public string Nome{
+			get{
+				return nome;
+			}
+			set{
+				nome = value;
+			}
 		}
 
-		public List<Telefone> Telefones
-		{
-			get => telefones;
-			set => telefones = value;
+		public string Cpf{
+			get{
+				return cpf;
+			}
+			set{
+				cpf = value;
+			}
 		}
 
-		public string DataNascimento
-		{
-			get => dataNascimento;
-			set => dataNascimento = value;
+		public List<Telefone> Telefones{
+			get{
+				return telefones;
+			}
+			set{
+				telefones = value;
+			}
 		}
 
-		public string Email
-		{
-			get => email;
-			set => email = value;
+		public string DataNascimento{
+			get{
+				return dataNascimento;
+			}
+			set{
+				dataNascimento = value;
+			}
 		}
 
-		public List<Endereco> Enderecos
-		{
-			get => enderecos;
-			set => enderecos = value;
+		public string Email{
+			get{
+				return email;
+			}
+			set{
+				email = value;
+			}
+		}
+
+		public Endereco Endereco{
+			get{
+				return endereco;
+			}
+			set{
+				endereco = value;
+			}
 		}
 
 	}
 
-}
+}//end namespace GoHorseClassLibrary

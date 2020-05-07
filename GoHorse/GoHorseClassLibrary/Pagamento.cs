@@ -5,15 +5,16 @@ using System.IO;
 
 
 
+using GoHorseClassLibrary;
 namespace GoHorseClassLibrary {
-	public class Telefone {
+	public class Pagamento {
 
 		private int id;
-		private Pessoa pessoa;
-		private string numero = "";
-		private string descricao = "";
+		private Viagem viagem;
+		private Cartao cartao;
+		private Conta conta;
 
-		public Telefone(){
+		public Pagamento(){
 
 		}
 
@@ -26,30 +27,30 @@ namespace GoHorseClassLibrary {
 			}
 		}
 
-		public Pessoa Pessoa{
+		public Viagem Viagem{
 			get{
-				return pessoa;
+				return viagem;
 			}
 			set{
-				pessoa = value;
+				viagem = value;
 			}
 		}
 
-		public string Numero{
+		public Cartao Cartao{
 			get{
-				return numero;
+				return cartao;
 			}
 			set{
-				numero = value;
+				cartao = value;
 			}
 		}
 
-		public string Descricao{
+		public Conta Conta{
 			get{
-				return descricao;
+				return conta;
 			}
 			set{
-				descricao = value;
+				conta = value;
 			}
 		}
 

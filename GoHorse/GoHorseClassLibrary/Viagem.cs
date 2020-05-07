@@ -1,122 +1,91 @@
 using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
 
-namespace GoHorseClassLibrary
-{
-	public class Viagem
-	{
-		private Veiculo Veiculo;
 
-		private Animal Animal;
 
-		private Endereco EndOrigem;
+using GoHorseClassLibrary;
+namespace GoHorseClassLibrary {
+	public class Viagem {
 
-		private Endereco EndDestino;
+		private int id;
+		private Veiculo veiculo;
+		private Animal animal;
+		private List<Endereco> enderecos;
+		private string dataOrigem = "";
+		private string dataDestino = "";
+		private double valorViagem = 0.0;
 
-		private string DataOrigem;
+		public Viagem(){
 
-		private string DataDestino;
-
-		private PagamentoCliente PagamentoCliente;
-
-		private double ValorViagem;
-
-		private PagamentoMotorista PagamentoMotorista;
-
-		private PagamentoCliente pagamentoCliente;
-
-		private PagamentoMotorista pagamentoMotorista;
-
-		public int ViagemId { get; set; }
-		public void getVeiculo()
-		{
+			enderecos = new List<Endereco>();
 
 		}
 
-		public void getAnimal()
-		{
-
+		public int Id{
+			get{
+				return id;
+			}
+			set{
+				id = value;
+			}
 		}
 
-		public void getEndOrigem()
-		{
-
+		public Veiculo Veiculo{
+			get{
+				return veiculo;
+			}
+			set{
+				veiculo = value;
+			}
 		}
 
-		public void getEndDestino()
-		{
-
+		public Animal Animal{
+			get{
+				return animal;
+			}
+			set{
+				animal = value;
+			}
 		}
 
-		public void getDataOrigem()
-		{
-
+		public List<Endereco> Enderecos{
+			get{
+				return enderecos;
+			}
+			set{
+				enderecos = value;
+			}
 		}
 
-		public void getDataDestino()
-		{
-
+		public string DataOrigem{
+			get{
+				return dataOrigem;
+			}
+			set{
+				dataOrigem = value;
+			}
 		}
 
-		public void getPagamentoCliente()
-		{
-
+		public string DataDestino{
+			get{
+				return dataDestino;
+			}
+			set{
+				dataDestino = value;
+			}
 		}
 
-		public void getPagamentoMotorista()
-		{
-
-		}
-
-		public void getValorViagem()
-		{
-
-		}
-
-		public void setVeiculo()
-		{
-
-		}
-
-		public void setAnimal()
-		{
-
-		}
-
-		public void setEndOrigem()
-		{
-
-		}
-
-		public void setEndDestino()
-		{
-
-		}
-
-		public void setDataOrigem()
-		{
-
-		}
-
-		public void setDataDestino()
-		{
-
-		}
-
-		public void setPagamentoCliente()
-		{
-
-		}
-
-		public void setPagamentoMotorista()
-		{
-
-		}
-
-		public void setValorViagem()
-		{
-
+		public double ValorViagem{
+			get{
+				return valorViagem;
+			}
+			set{
+				valorViagem = value;
+			}
 		}
 
 	}
 
-}
+}//end namespace GoHorseClassLibrary
