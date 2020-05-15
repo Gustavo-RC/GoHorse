@@ -1,0 +1,50 @@
+﻿@page
+@model GoHorseWeb.Pages.Cartoes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Cartao</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Cartao.Id" />
+            <div class="form-group">
+                <label asp-for="Cartao.Nome" class="control-label"></label>
+                <input asp-for="Cartao.Nome" class="form-control" />
+                <span asp-validation-for="Cartao.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cartao.NCartao" class="control-label"></label>
+                <input asp-for="Cartao.NCartao" class="form-control" />
+                <span asp-validation-for="Cartao.NCartao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cartao.Validade" class="control-label"></label>
+                <input asp-for="Cartao.Validade" class="form-control" />
+                <span asp-validation-for="Cartao.Validade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cartao.Cv" class="control-label"></label>
+                <input asp-for="Cartao.Cv" class="form-control" />
+                <span asp-validation-for="Cartao.Cv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

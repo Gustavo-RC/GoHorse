@@ -1,0 +1,55 @@
+﻿@page
+@model GoHorseWeb.Pages.Animais.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Animal</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Animal.Id" />
+            <div class="form-group">
+                <label asp-for="Animal.NRegistro" class="control-label"></label>
+                <input asp-for="Animal.NRegistro" class="form-control" />
+                <span asp-validation-for="Animal.NRegistro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.Nome" class="control-label"></label>
+                <input asp-for="Animal.Nome" class="form-control" />
+                <span asp-validation-for="Animal.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.Raca" class="control-label"></label>
+                <input asp-for="Animal.Raca" class="form-control" />
+                <span asp-validation-for="Animal.Raca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.DataNascimento" class="control-label"></label>
+                <input asp-for="Animal.DataNascimento" class="form-control" />
+                <span asp-validation-for="Animal.DataNascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.Descricao" class="control-label"></label>
+                <input asp-for="Animal.Descricao" class="form-control" />
+                <span asp-validation-for="Animal.Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,45 @@
+﻿@page
+@model GoHorseWeb.Pages.Viagens.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Viagem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Viagem.Id" />
+            <div class="form-group">
+                <label asp-for="Viagem.DataOrigem" class="control-label"></label>
+                <input asp-for="Viagem.DataOrigem" class="form-control" />
+                <span asp-validation-for="Viagem.DataOrigem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Viagem.DataDestino" class="control-label"></label>
+                <input asp-for="Viagem.DataDestino" class="form-control" />
+                <span asp-validation-for="Viagem.DataDestino" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Viagem.ValorViagem" class="control-label"></label>
+                <input asp-for="Viagem.ValorViagem" class="form-control" />
+                <span asp-validation-for="Viagem.ValorViagem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

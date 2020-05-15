@@ -1,0 +1,37 @@
+﻿@page
+@model GoHorseWeb.Pages.Viagens.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Viagem</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Viagem.DataOrigem)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Viagem.DataOrigem)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Viagem.DataDestino)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Viagem.DataDestino)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Viagem.ValorViagem)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Viagem.ValorViagem)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Viagem.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

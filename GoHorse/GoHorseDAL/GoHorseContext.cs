@@ -6,7 +6,7 @@ using System.Text;
 
 namespace GoHorseDAL
 {
-    class GoHorseContext : DbContext
+    public class GoHorseContext : DbContext
     {
         public DbSet<Animal> Animais { get; set; }
         public DbSet<Cartao> Cartoes { get; set; }
