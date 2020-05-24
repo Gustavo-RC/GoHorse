@@ -9,7 +9,6 @@ namespace GoHorseClassLibrary {
 	public class Endereco {
 
 		private int id;
-		private Viagem viagem;
 		private string tipo = "";
 		private string rua = "";
 		private string numero = "";
@@ -22,21 +21,12 @@ namespace GoHorseClassLibrary {
 
 		}
 
-		public int Id{
+		public int EnderecoId{
 			get{
 				return id;
 			}
 			set{
 				id = value;
-			}
-		}
-
-		public Viagem Viagem{
-			get{
-				return viagem;
-			}
-			set{
-				viagem = value;
 			}
 		}
 

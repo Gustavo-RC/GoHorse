@@ -12,15 +12,15 @@ namespace GoHorseClassLibrary {
 		private int id;
 		private Veiculo veiculo;
 		private Animal animal;
-		private List<Endereco> enderecos;
+		private List<Parada> paradas;
 		private string dataOrigem = "";
 		private string dataDestino = "";
 		private double valorViagem = 0.0;
+		private Endereco enderecoOrigem;
+		private Endereco enderecoDestino;
 
 		public Viagem(){
-
-			enderecos = new List<Endereco>();
-
+			paradas = new List<Parada>();
 		}
 
 		public int Id{
@@ -50,12 +50,12 @@ namespace GoHorseClassLibrary {
 			}
 		}
 
-		public List<Endereco> Enderecos{
+		public List<Parada> Paradas{
 			get{
-				return enderecos;
+				return paradas;
 			}
 			set{
-				enderecos = value;
+				paradas = value;
 			}
 		}
 
@@ -83,6 +83,24 @@ namespace GoHorseClassLibrary {
 			}
 			set{
 				valorViagem = value;
+			}
+		}
+
+		public Endereco EnderecoOrigem{
+			get{
+				return enderecoOrigem;
+			}
+			set{
+				enderecoOrigem = value;
+			}
+		}
+
+		public Endereco EnderecoDestino{
+			get{
+				return enderecoDestino;
+			}
+			set{
+				enderecoDestino = value;
 			}
 		}
 

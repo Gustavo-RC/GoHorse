@@ -108,7 +108,7 @@ namespace GoHorseDAL.Migrations
 
             modelBuilder.Entity("GoHorseClassLibrary.Endereco", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EnderecoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -120,6 +120,10 @@ namespace GoHorseDAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cidade")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Estado")
@@ -134,14 +138,11 @@ namespace GoHorseDAL.Migrations
                     b.Property<string>("Tipo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ViagemId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ViagemId");
+                    b.HasKey("EnderecoId");
 
                     b.ToTable("Enderecos");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Endereco");
                 });
 
             modelBuilder.Entity("GoHorseClassLibrary.Pagamento", b =>
@@ -274,6 +275,12 @@ namespace GoHorseDAL.Migrations
                     b.Property<string>("DataOrigem")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("EnderecoDestinoEnderecoId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("EnderecoOrigemEnderecoId")
+                        .HasColumnType("int");
+
                     b.Property<double>("ValorViagem")
                         .HasColumnType("float");
 
@@ -284,9 +291,31 @@ namespace GoHorseDAL.Migrations
 
                     b.HasIndex("AnimalId");
 
+                    b.HasIndex("EnderecoDestinoEnderecoId");
+
+                    b.HasIndex("EnderecoOrigemEnderecoId");
+
                     b.HasIndex("VeiculoId");
 
                     b.ToTable("Viagens");
+                });
+
+            modelBuilder.Entity("GoHorseClassLibrary.Parada", b =>
+                {
+                    b.HasBaseType("GoHorseClassLibrary.Endereco");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumeroParada")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ViagemId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("ViagemId");
+
+                    b.HasDiscriminator().HasValue("Parada");
                 });
 
             modelBuilder.Entity("GoHorseClassLibrary.Cliente", b =>
@@ -340,13 +369,6 @@ namespace GoHorseDAL.Migrations
                         .HasForeignKey("MotoristaPessoaId");
                 });
 
-            modelBuilder.Entity("GoHorseClassLibrary.Endereco", b =>
-                {
-                    b.HasOne("GoHorseClassLibrary.Viagem", "Viagem")
-                        .WithMany("Enderecos")
-                        .HasForeignKey("ViagemId");
-                });
-
             modelBuilder.Entity("GoHorseClassLibrary.Pagamento", b =>
                 {
                     b.HasOne("GoHorseClassLibrary.Cartao", "Cartao")
@@ -389,9 +411,24 @@ namespace GoHorseDAL.Migrations
                         .WithMany()
                         .HasForeignKey("AnimalId");
 
+                    b.HasOne("GoHorseClassLibrary.Endereco", "EnderecoDestino")
+                        .WithMany()
+                        .HasForeignKey("EnderecoDestinoEnderecoId");
+
+                    b.HasOne("GoHorseClassLibrary.Endereco", "EnderecoOrigem")
+                        .WithMany()
+                        .HasForeignKey("EnderecoOrigemEnderecoId");
+
                     b.HasOne("GoHorseClassLibrary.Veiculo", "Veiculo")
                         .WithMany()
                         .HasForeignKey("VeiculoId");
+                });
+
+            modelBuilder.Entity("GoHorseClassLibrary.Parada", b =>
+                {
+                    b.HasOne("GoHorseClassLibrary.Viagem", null)
+                        .WithMany("Paradas")
+                        .HasForeignKey("ViagemId");
                 });
 #pragma warning restore 612, 618
         }
