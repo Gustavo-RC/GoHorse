@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoHorseDAL", "GoHorseDAL\Go
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoHorseWeb", "GoHorseWeb\GoHorseWeb.csproj", "{37CCC97F-2F52-481A-A9BC-E829E1C84278}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoHorseWebAPI", "GoHorseWebAPI\GoHorseWebAPI.csproj", "{B785164D-2F21-4D92-8D4E-158A025BE616}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoHorseWebAPI", "GoHorseWebAPI\GoHorseWebAPI.csproj", "{B785164D-2F21-4D92-8D4E-158A025BE616}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
