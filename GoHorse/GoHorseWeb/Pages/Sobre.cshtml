@@ -1,8 +1,35 @@
 ﻿@page
 @model PrivacyModel
 @{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Sobre Nós";
 }
-<h1>@ViewData["Title"]</h1>
+<h1></h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<!-- Main -->
+<div class="wrapper style2">
+
+    <article id="main" class="container special">
+        <header>
+            <h2><a>@ViewData["Title"]</a></h2>
+            <p>
+                Devido aos altos custos e escassez/dificuldade de encontrar um transporte
+                qualificado, eficaz e seguro para fazer o deslocamento de animais de médio e
+                grande porte, como cavalos, até campeonatos, veterinários, fazendas e haras 
+                desenvolvemos este aplicativo que conecta os donos desses animais à motoristas 
+                preparados para esse serviço.
+            </p>
+        </header>
+        <p>
+            Consequência da necessidade de um transporte seguro, ágil e com um custo
+            acessível para donos de animais de médio e grande porte que precisam
+            deslocar seus animais, mas encontram dificuldades de encontrar motoristas
+            qualificados, com veículos preparados para fazer esses deslocamentos com
+            segurança. Eis que surge a plataforma que une os donos desses animais a 
+            motoristas preparados e com experiência.
+        </p>
+        <footer>
+            <a asp-page="/Viagem/Index" class="button">Viajar</a>
+        </footer>
+    </article>
+
+</div>
