@@ -1,72 +1,120 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE HTML>
+<!--
+    Helios by HTML5 UP
+    html5up.net | ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="pt-br">
 <head>
+    <title>Go Horse</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>@ViewData["Title"] - GoHorseWeb</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">GoHorseWeb</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
+    <div id="page-wrapper">
 
-                    <nav>
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Cadastros
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" asp-area="" asp-page="/Animais/Index">Animais</a>
-                                    <a class="dropdown-item" asp-area="" asp-page="/Cartoes/Index">Cartoes</a>
-                                    <a class="dropdown-item" asp-area="" asp-page="/Clientes/Index">Clientes</a>
-                                    <a class="dropdown-item" asp-area="" asp-page="/Contas/Index">Contas</a>
-                                    <a class="dropdown-item" asp-area="" asp-page="/Enderecos/Index">Enderecos</a>
-                                    <a class="dropdown-item" asp-area="" asp-page="/Motoristas/Index">Motoristas</a>
-                                    <a class="dropdown-item" asp-area="" asp-page="/Pagamentos/Index">Pagamentos</a>
-                                    <a class="dropdown-item" asp-area="" asp-page="/Paradas/Index">Paradas</a>
-                                    <a class="dropdown-item" asp-area="" asp-page="/Telefones/Index">Telefones</a>
-                                    <a class="dropdown-item" asp-area="" asp-page="/Veiculos/Index">Veiculos</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" asp-area="" asp-page="/Viagens/Index">Viagens</a>
-                                </div>
-                            </li>
+        <!-- Header -->
+        <div id="header">
+
+            <!-- Inner -->
+            <div class="inner">
+                <header>
+                    <h1>Go Horse</h1>
+                    <hr />
+                    <p>App Para Transporte de Animais</p>
+                </header>
+                @RenderSection("Iniciar", required: false)
+            </div>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a class="nav-link" asp-page="/Index">Go Home</a></li>
+                    <li>
+                        <a>Cadastros</a>
+                        <ul>
+                            <li><a class="nav-link text-dark" asp-page="/Animais/Index">Animais</a></li>
+                            <li><a class="nav-link text-dark" asp-page="/Cartoes/Index">Cartoes</a></li>
+                            <li><a class="nav-link text-dark" asp-page="/Clientes/Index">Clientes</a></li>
+                            <li><a class="nav-link text-dark" asp-page="/Contas/Index">Contas</a></li>
+                            <li><a class="nav-link text-dark" asp-page="/Enderecos/Index">Enderecos</a></li>
+                            <li><a class="nav-link text-dark" asp-page="/Motoristas/Index">Motoristas</a></li>
+                            <li><a class="nav-link text-dark" asp-page="/Pagamentos/Index">Pagamentos</a></li>
+                            <li><a class="nav-link text-dark" asp-page="/Paradas/Index">Paradas</a></li>
+                            <li><a class="nav-link text-dark" asp-page="/Telefones/Index">Telefones</a></li>
+                            <li><a class="nav-link text-dark" asp-page="/Veiculos/Index">Veiculos</a></li>
+                            <li><a class="nav-link text-dark" asp-page="/Viagens/Index">Viagens</a></li>
                         </ul>
-                    </nav>
+                    </li>
+                    <li><a class="nav-link" asp-page="/Sobre">Sobre</a></li>
+                    <li><partial name="_LoginPartial" /></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer">
+            <div class="container">
+                <!--<hr />-->
+                <div class="row">
+                    <div class="col-12">
+
+                        <!-- Contact -->
+                        <section class="contact">
+                            <header>
+                                <h3>Viva o futuro</h3>
+                            </header>
+                            <p>O melhor transporte, no menor tempo</p>
+                            <ul class="icons">
+                                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                                <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+                                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                                <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
+                            </ul>
+                        </section>
+
+                        <!-- Copyright -->
+                        <div class="copyright">
+                            <ul class="menu">
+                                <li>&copy; GRC_DEV. All rights reserved.</li>
+                                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </div>
+
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - GoHorseWeb - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

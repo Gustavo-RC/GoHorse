@@ -64,6 +64,8 @@ namespace GoHorseWeb
             {
                 endpoints.MapRazorPages();
             });
+
+            app.UseStaticFiles();
         }
     }
 }
