@@ -12,10 +12,9 @@
     <title>@ViewData["Title"] - GoHorseWeb</title>
     <link rel="stylesheet" href="~/assets/css/main.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
     <noscript><link rel="stylesheet" href="~/assets/css/noscript.css" /></noscript>
 </head>
-<body>
+<body class="no-sidebar is-preload">
     <div id="page-wrapper">
 
         <!-- Header -->
@@ -34,28 +33,27 @@
             <!-- Nav -->
             <nav id="nav">
                 <ul>
-                    <li><a class="nav-link" asp-page="/Index">Go Home</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-page="/Index">Go Home</a></li>
                     <li>
                         <a>Cadastros</a>
                         <ul>
-                            <li><a class="nav-link text-dark" asp-page="/Animais/Index">Animais</a></li>
-                            <li><a class="nav-link text-dark" asp-page="/Cartoes/Index">Cartoes</a></li>
-                            <li><a class="nav-link text-dark" asp-page="/Clientes/Index">Clientes</a></li>
-                            <li><a class="nav-link text-dark" asp-page="/Contas/Index">Contas</a></li>
-                            <li><a class="nav-link text-dark" asp-page="/Enderecos/Index">Enderecos</a></li>
-                            <li><a class="nav-link text-dark" asp-page="/Motoristas/Index">Motoristas</a></li>
-                            <li><a class="nav-link text-dark" asp-page="/Pagamentos/Index">Pagamentos</a></li>
-                            <li><a class="nav-link text-dark" asp-page="/Paradas/Index">Paradas</a></li>
-                            <li><a class="nav-link text-dark" asp-page="/Telefones/Index">Telefones</a></li>
-                            <li><a class="nav-link text-dark" asp-page="/Veiculos/Index">Veiculos</a></li>
-                            <li><a class="nav-link text-dark" asp-page="/Viagens/Index">Viagens</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Animais/Index">Animais</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Cartoes/Index">Cartoes</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Clientes/Index">Clientes</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Contas/Index">Contas</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Enderecos/Index">Enderecos</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Motoristas/Index">Motoristas</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Pagamentos/Index">Pagamentos</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Paradas/Index">Paradas</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Telefones/Index">Telefones</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Veiculos/Index">Veiculos</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Viagens/Index">Viagens</a></li>
                         </ul>
                     </li>
-                    <li><a class="nav-link" asp-page="/Sobre">Sobre</a></li>
-                    <li><partial name="_LoginPartial" /></li>
+                    <li class="nav-item"><a class="nav-link" asp-page="/Sobre">Sobre</a></li>
+                    <li class="nav-item"><partial name="_LoginPartial" /></li>
                 </ul>
             </nav>
-
         </div>
 
         <div class="container">
@@ -67,9 +65,8 @@
         <!-- Footer -->
         <div id="footer">
             <div class="container">
-                <!--<hr />-->
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-md-12">
 
                         <!-- Contact -->
                         <section class="contact">
@@ -102,6 +99,7 @@
         </div>
 
     </div>
+
 
     <!-- Scripts -->
     <script src="~/assets/js/jquery.min.js"></script>
