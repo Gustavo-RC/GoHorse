@@ -30,7 +30,7 @@ namespace GoHorseWeb.Pages.Clientes
                 return NotFound();
             }
 
-            Cliente = await _context.Clientes.FirstOrDefaultAsync(m => m.PessoaId == id);
+            Cliente = await _context.Clientes.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Cliente == null)
             {
@@ -56,7 +56,7 @@ namespace GoHorseWeb.Pages.Clientes
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ClienteExists(Cliente.PessoaId))
+                if (!ClienteExists(Cliente.Id))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace GoHorseWeb.Pages.Clientes
 
         private bool ClienteExists(int id)
         {
-            return _context.Clientes.Any(e => e.PessoaId == id);
+            return _context.Clientes.Any(e => e.Id == id);
         }
     }
 }

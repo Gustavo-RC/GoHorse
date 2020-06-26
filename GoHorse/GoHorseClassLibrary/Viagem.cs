@@ -18,6 +18,7 @@ namespace GoHorseClassLibrary {
 		private double valorViagem = 0.0;
 		private Endereco enderecoOrigem;
 		private Endereco enderecoDestino;
+		private int status = 0;
 
 		public Viagem(){
 			paradas = new List<Parada>();
@@ -101,6 +102,18 @@ namespace GoHorseClassLibrary {
 			}
 			set{
 				enderecoDestino = value;
+			}
+		}
+
+		public int Status
+		{
+			get
+			{
+				return status;
+			}
+			set
+			{
+				status = value;
 			}
 		}
 

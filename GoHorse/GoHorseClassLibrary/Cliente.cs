@@ -9,7 +9,6 @@ using GoHorseClassLibrary;
 namespace GoHorseClassLibrary {
 	public class Cliente : Pessoa {
 
-		private int id;
 		private List<Cartao> cartoes;
 		private List<Animal> animais;
 
@@ -17,16 +16,6 @@ namespace GoHorseClassLibrary {
 
 			animais = new List<Animal>();
 			cartoes = new List<Cartao>();
-
-		}
-
-		public int Id{
-			get{
-				return id;
-			}
-			set{
-				id = value;
-			}
 		}
 
 		public List<Cartao> Cartoes{

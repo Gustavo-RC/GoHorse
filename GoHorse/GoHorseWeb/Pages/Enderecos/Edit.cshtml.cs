@@ -30,7 +30,7 @@ namespace GoHorseWeb.Pages.Enderecos
                 return NotFound();
             }
 
-            Endereco = await _context.Enderecos.FirstOrDefaultAsync(m => m.EnderecoId == id);
+            Endereco = await _context.Enderecos.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Endereco == null)
             {
@@ -56,7 +56,7 @@ namespace GoHorseWeb.Pages.Enderecos
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EnderecoExists(Endereco.EnderecoId))
+                if (!EnderecoExists(Endereco.Id))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace GoHorseWeb.Pages.Enderecos
 
         private bool EnderecoExists(int id)
         {
-            return _context.Enderecos.Any(e => e.EnderecoId == id);
+            return _context.Enderecos.Any(e => e.Id == id);
         }
     }
 }

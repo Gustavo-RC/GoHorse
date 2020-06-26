@@ -117,7 +117,7 @@ namespace GoHorseDAL
                               select b;
 
                 var telefones = from c in ctx.Telefones
-                                where c.Pessoa.PessoaId == cliente.PessoaId
+                                where c.Pessoa.Id == cliente.Id
                                 select c;
 
                 foreach (var animal in animais)

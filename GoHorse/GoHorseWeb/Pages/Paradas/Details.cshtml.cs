@@ -28,7 +28,7 @@ namespace GoHorseWeb.Pages.Paradas
                 return NotFound();
             }
 
-            Parada = await _context.Paradas.FirstOrDefaultAsync(m => m.EnderecoId == id);
+            Parada = await _context.Paradas.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Parada == null)
             {

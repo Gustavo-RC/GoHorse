@@ -9,7 +9,6 @@ using GoHorseClassLibrary;
 namespace GoHorseClassLibrary {
 	public class Motorista : Pessoa {
 
-		private int id;
 		private string nRegistroCnh = "";
 		private string validadeCnh = "";
 		private string categoriaCnh = "";
@@ -21,15 +20,6 @@ namespace GoHorseClassLibrary {
 			contas = new List<Conta>();
 			veiculos = new List<Veiculo>();
 
-		}
-
-		public int Id{
-			get{
-				return id;
-			}
-			set{
-				id = value;
-			}
 		}
 
 		public string NRegistroCnh{

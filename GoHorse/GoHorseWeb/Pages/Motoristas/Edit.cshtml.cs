@@ -30,7 +30,7 @@ namespace GoHorseWeb.Pages.Motoristas
                 return NotFound();
             }
 
-            Motorista = await _context.Motoristas.FirstOrDefaultAsync(m => m.PessoaId == id);
+            Motorista = await _context.Motoristas.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Motorista == null)
             {
@@ -56,7 +56,7 @@ namespace GoHorseWeb.Pages.Motoristas
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MotoristaExists(Motorista.PessoaId))
+                if (!MotoristaExists(Motorista.Id))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace GoHorseWeb.Pages.Motoristas
 
         private bool MotoristaExists(int id)
         {
-            return _context.Motoristas.Any(e => e.PessoaId == id);
+            return _context.Motoristas.Any(e => e.Id == id);
         }
     }
 }

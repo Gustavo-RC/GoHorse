@@ -30,7 +30,7 @@ namespace GoHorseWeb.Pages.Paradas
                 return NotFound();
             }
 
-            Parada = await _context.Paradas.FirstOrDefaultAsync(m => m.EnderecoId == id);
+            Parada = await _context.Paradas.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Parada == null)
             {
@@ -56,7 +56,7 @@ namespace GoHorseWeb.Pages.Paradas
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ParadaExists(Parada.EnderecoId))
+                if (!ParadaExists(Parada.Id))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace GoHorseWeb.Pages.Paradas
 
         private bool ParadaExists(int id)
         {
-            return _context.Paradas.Any(e => e.EnderecoId == id);
+            return _context.Paradas.Any(e => e.Id == id);
         }
     }
 }

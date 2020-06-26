@@ -22,7 +22,7 @@ namespace GoHorseClassLibrary {
 			telefones = new List<Telefone>();
 		}
 
-		public int PessoaId{
+		public int Id{
 			get{
 				return id;
 			}

@@ -9,20 +9,11 @@ using GoHorseClassLibrary;
 namespace GoHorseClassLibrary {
 	public class Parada : Endereco {
 
-		private int id;
 		private int numero = 0;
+		private Viagem viagem;
 
 		public Parada(){
 
-		}
-
-		public int Id{
-			get{
-				return id;
-			}
-			set{
-				id = value;
-			}
 		}
 
 		public int NumeroParada{
@@ -31,6 +22,18 @@ namespace GoHorseClassLibrary {
 			}
 			set{
 				numero = value;
+			}
+		}
+
+		public Viagem Viagem
+		{
+			get
+			{
+				return viagem;
+			}
+			set
+			{
+				viagem = value;
 			}
 		}
 

@@ -29,7 +29,7 @@ namespace GoHorseWeb.Pages.Enderecos
                 return NotFound();
             }
 
-            Endereco = await _context.Enderecos.FirstOrDefaultAsync(m => m.EnderecoId == id);
+            Endereco = await _context.Enderecos.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Endereco == null)
             {

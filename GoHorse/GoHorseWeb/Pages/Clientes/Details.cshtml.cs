@@ -28,7 +28,7 @@ namespace GoHorseWeb.Pages.Clientes
                 return NotFound();
             }
 
-            Cliente = await _context.Clientes.FirstOrDefaultAsync(m => m.PessoaId == id);
+            Cliente = await _context.Clientes.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Cliente == null)
             {

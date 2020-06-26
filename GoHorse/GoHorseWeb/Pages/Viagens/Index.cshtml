@@ -1,4 +1,5 @@
-﻿@page
+﻿
+@page
 @model GoHorseWeb.Pages.Viagens.IndexModel
 
 @{
@@ -22,27 +23,34 @@
             <th>
                 @Html.DisplayNameFor(model => model.Viagem[0].ValorViagem)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Viagem[0].Status)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Viagem) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataOrigem)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataDestino)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValorViagem)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Viagem)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataOrigem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataDestino)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorViagem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

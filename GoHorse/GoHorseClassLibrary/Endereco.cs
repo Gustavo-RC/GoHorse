@@ -21,7 +21,7 @@ namespace GoHorseClassLibrary {
 
 		}
 
-		public int EnderecoId{
+		public int Id{
 			get{
 				return id;
 			}
