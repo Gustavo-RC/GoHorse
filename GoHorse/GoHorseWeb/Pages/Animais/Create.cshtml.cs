@@ -21,11 +21,18 @@ namespace GoHorseWeb.Pages.Animais
 
         public IActionResult OnGet()
         {
+            Clientes = new SelectList(_context.Clientes, "Id", "Nome");
             return Page();
         }
 
         [BindProperty]
         public Animal Animal { get; set; }
+
+        //Itens necessários para gravação
+        public SelectList Clientes { get; set; }
+
+        [BindProperty]
+        public int ClienteId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -35,6 +42,10 @@ namespace GoHorseWeb.Pages.Animais
             {
                 return Page();
             }
+
+            Cliente cliente = _context.Clientes.Find(ClienteId);
+
+            Animal.Cliente = cliente;
 
             _context.Animais.Add(Animal);
             await _context.SaveChangesAsync();

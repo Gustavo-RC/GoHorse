@@ -28,7 +28,9 @@ namespace GoHorseWeb.Pages.Animais
                 return NotFound();
             }
 
-            Animal = await _context.Animais.FirstOrDefaultAsync(m => m.Id == id);
+            Animal = await _context.Animais
+                .Include(Animal => Animal.Cliente)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Animal == null)
             {

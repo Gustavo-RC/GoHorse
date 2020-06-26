@@ -23,6 +23,8 @@ namespace GoHorseWeb.Pages.Animais
         [BindProperty]
         public Animal Animal { get; set; }
 
+        public SelectList Clientes { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -30,14 +32,26 @@ namespace GoHorseWeb.Pages.Animais
                 return NotFound();
             }
 
-            Animal = await _context.Animais.FirstOrDefaultAsync(m => m.Id == id);
+            Clientes = new SelectList(_context.Clientes, "Id", "Nome");
+
+            Animal = await _context.Animais
+                .Include(Animal => Animal.Cliente)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Animal == null)
             {
                 return NotFound();
             }
+
+            //Relacionamento original
+            ClienteId = Animal.Cliente.Id;
+
             return Page();
         }
+
+        //Itens necessários para gravação
+        [BindProperty]
+        public int ClienteId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -52,6 +66,10 @@ namespace GoHorseWeb.Pages.Animais
 
             try
             {
+                //Itens necessarios para gravação
+                Cliente cliente = _context.Clientes.Find(ClienteId);
+                Animal.Cliente = cliente;
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
