@@ -23,7 +23,10 @@ namespace GoHorseWeb.Pages.Cartoes
 
         public async Task OnGetAsync()
         {
-            Cartao = await _context.Cartoes.ToListAsync();
+            //***Inclui o cliente no contexto
+            Cartao = await _context.Cartoes
+                .Include(Cartao => Cartao.Cliente)
+                .ToListAsync();
         }
     }
 }

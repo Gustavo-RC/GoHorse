@@ -24,6 +24,12 @@
                 <span asp-validation-for="Telefone.Descricao" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label class="control-label" asp-for="PessoaId">Pessoa</label>
+                <select asp-for="PessoaId" asp-items="Model.Pessoas" class="custom-select">
+                    <option value="">Selecione</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

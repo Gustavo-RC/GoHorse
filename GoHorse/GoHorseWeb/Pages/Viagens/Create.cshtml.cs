@@ -21,11 +21,31 @@ namespace GoHorseWeb.Pages.Viagens
 
         public IActionResult OnGet()
         {
+            //***Tras do contexto
+            Veiculos = new SelectList(_context.Veiculos, "Id", "Marca");
+            Animais = new SelectList(_context.Animais, "Id", "Nome");
+            EnderecosOrigem = new SelectList(_context.Enderecos, "Id", "Tipo");
+            EnderecosDestino = new SelectList(_context.Enderecos, "Id", "Tipo");
+
             return Page();
         }
 
         [BindProperty]
         public Viagem Viagem { get; set; }
+
+        //***Itens necessários para gravação
+        public SelectList Veiculos { get; set; }
+        [BindProperty]
+        public int VeiculoId { get; set; }
+        public SelectList Animais { get; set; }
+        [BindProperty]
+        public int AnimalId { get; set; }
+        public SelectList EnderecosOrigem { get; set; }
+        [BindProperty]
+        public int EnderecoOrigemId { get; set; }
+        public SelectList EnderecosDestino { get; set; }
+        [BindProperty]
+        public int EnderecoDestinoId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -35,6 +55,16 @@ namespace GoHorseWeb.Pages.Viagens
             {
                 return Page();
             }
+
+            //***Busca no contexto
+            Veiculo veiculo = _context.Veiculos.Find(VeiculoId);
+            Viagem.Veiculo = veiculo;
+            Animal animal = _context.Animais.Find(AnimalId);
+            Viagem.Animal = animal;
+            Endereco enderecoOrigem = _context.Enderecos.Find(EnderecoOrigemId);
+            Viagem.EnderecoOrigem = enderecoOrigem;
+            Endereco enderecoDestino = _context.Enderecos.Find(EnderecoDestinoId);
+            Viagem.EnderecoDestino = enderecoDestino;
 
             _context.Viagens.Add(Viagem);
             await _context.SaveChangesAsync();

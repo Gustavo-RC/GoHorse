@@ -28,7 +28,10 @@ namespace GoHorseWeb.Pages.Contas
                 return NotFound();
             }
 
-            Conta = await _context.Contas.FirstOrDefaultAsync(m => m.Id == id);
+            //***Inclui para visualização
+            Conta = await _context.Contas
+                .Include(Conta => Conta.Motorista)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Conta == null)
             {

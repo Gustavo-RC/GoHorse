@@ -23,6 +23,7 @@ namespace GoHorseWeb.Pages.Animais
 
         public async Task OnGetAsync()
         {
+            //***Inclui o cliente no contexto
             Animal = await _context.Animais
                 .Include(Animal => Animal.Cliente)
                 .ToListAsync();

@@ -28,7 +28,10 @@ namespace GoHorseWeb.Pages.Motoristas
                 return NotFound();
             }
 
-            Motorista = await _context.Motoristas.FirstOrDefaultAsync(m => m.Id == id);
+            //***Inclui para visualização
+            Motorista = await _context.Motoristas
+                .Include(Motorista => Motorista.Endereco)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Motorista == null)
             {

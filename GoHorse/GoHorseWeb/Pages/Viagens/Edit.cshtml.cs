@@ -23,6 +23,12 @@ namespace GoHorseWeb.Pages.Viagens
         [BindProperty]
         public Viagem Viagem { get; set; }
 
+        //***Itens necessários para gravação
+        public SelectList Veiculos { get; set; }
+        public SelectList Animais { get; set; }
+        public SelectList EnderecosOrigem { get; set; }
+        public SelectList EnderecosDestino { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -30,7 +36,23 @@ namespace GoHorseWeb.Pages.Viagens
                 return NotFound();
             }
 
-            Viagem = await _context.Viagens.FirstOrDefaultAsync(m => m.Id == id);
+            //***Tras do contexto
+            Veiculos = new SelectList(_context.Veiculos, "Id", "Marca");
+            Animais = new SelectList(_context.Animais, "Id", "Nome");
+            EnderecosOrigem = new SelectList(_context.Enderecos, "Id", "Tipo");
+            EnderecosDestino = new SelectList(_context.Enderecos, "Id", "Tipo");
+            //***Inclui para visualização
+            Viagem = await _context.Viagens
+                .Include(Viagem => Viagem.Animal)
+                .Include(Viagem => Viagem.Veiculo)
+                .Include(Viagem => Viagem.EnderecoOrigem)
+                .Include(Viagem => Viagem.EnderecoOrigem)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            //***Relacionamento original
+            VeiculoId = Viagem.Veiculo.Id;
+            AnimalId = Viagem.Animal.Id;
+            EnderecoOrigemId = Viagem.EnderecoOrigem.Id;
+            EnderecoDestinoId = Viagem.EnderecoDestino.Id;
 
             if (Viagem == null)
             {
@@ -38,6 +60,16 @@ namespace GoHorseWeb.Pages.Viagens
             }
             return Page();
         }
+
+        //***Itens necessários para gravação
+        [BindProperty]
+        public int VeiculoId { get; set; }
+        [BindProperty]
+        public int AnimalId { get; set; }
+        [BindProperty]
+        public int EnderecoOrigemId { get; set; }
+        [BindProperty]
+        public int EnderecoDestinoId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -52,6 +84,16 @@ namespace GoHorseWeb.Pages.Viagens
 
             try
             {
+                //***Busca no contexto
+                Veiculo veiculo = _context.Veiculos.Find(VeiculoId);
+                Viagem.Veiculo = veiculo;
+                Animal animal = _context.Animais.Find(AnimalId);
+                Viagem.Animal = animal;
+                Endereco enderecoOrigem = _context.Enderecos.Find(EnderecoOrigemId);
+                Viagem.EnderecoOrigem = enderecoOrigem;
+                Endereco enderecoDestino = _context.Enderecos.Find(EnderecoDestinoId);
+                Viagem.EnderecoDestino = enderecoDestino;
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

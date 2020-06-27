@@ -21,16 +21,17 @@ namespace GoHorseWeb.Pages.Animais
 
         public IActionResult OnGet()
         {
+            //***Tras o cliente do contexto
             Clientes = new SelectList(_context.Clientes, "Id", "Nome");
+
             return Page();
         }
 
         [BindProperty]
         public Animal Animal { get; set; }
 
-        //Itens necessários para gravação
+        //***Itens necessários para gravação
         public SelectList Clientes { get; set; }
-
         [BindProperty]
         public int ClienteId { get; set; }
 
@@ -43,8 +44,8 @@ namespace GoHorseWeb.Pages.Animais
                 return Page();
             }
 
+            //***Busca o cliente no contexto
             Cliente cliente = _context.Clientes.Find(ClienteId);
-
             Animal.Cliente = cliente;
 
             _context.Animais.Add(Animal);

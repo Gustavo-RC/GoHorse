@@ -28,7 +28,12 @@ namespace GoHorseWeb.Pages.Pagamentos
                 return NotFound();
             }
 
-            Pagamento = await _context.Pagamentos.FirstOrDefaultAsync(m => m.Id == id);
+            //***Inclui para visualização
+            Pagamento = await _context.Pagamentos
+                .Include(Pagamento => Pagamento.Viagem)
+                .Include(Pagamento => Pagamento.Cartao)
+                .Include(Pagamento => Pagamento.Conta)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Pagamento == null)
             {

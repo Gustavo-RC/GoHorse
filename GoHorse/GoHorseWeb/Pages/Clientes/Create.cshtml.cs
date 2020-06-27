@@ -21,11 +21,19 @@ namespace GoHorseWeb.Pages.Clientes
 
         public IActionResult OnGet()
         {
+            //***Tras do contexto
+            Enderecos = new SelectList(_context.Enderecos, "Id", "Tipo");
+
             return Page();
         }
 
         [BindProperty]
         public Cliente Cliente { get; set; }
+
+        //***Itens necessários para gravação
+        public SelectList Enderecos { get; set; }
+        [BindProperty]
+        public int EnderecoId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -35,6 +43,10 @@ namespace GoHorseWeb.Pages.Clientes
             {
                 return Page();
             }
+
+            //***Busca no contexto
+            Endereco endereco = _context.Enderecos.Find(EnderecoId);
+            Cliente.Endereco = endereco;
 
             _context.Clientes.Add(Cliente);
             await _context.SaveChangesAsync();

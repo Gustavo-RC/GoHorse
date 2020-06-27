@@ -23,6 +23,9 @@ namespace GoHorseWeb.Pages.Telefones
         [BindProperty]
         public Telefone Telefone { get; set; }
 
+        //***Cria a lista
+        public SelectList Pessoas { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -30,7 +33,13 @@ namespace GoHorseWeb.Pages.Telefones
                 return NotFound();
             }
 
-            Telefone = await _context.Telefones.FirstOrDefaultAsync(m => m.Id == id);
+            //***Busca no contexto
+            Pessoas = new SelectList(_context.Pessoas, "Id", "Nome");
+            Telefone = await _context.Telefones
+                .Include(Telefone => Telefone.Pessoa)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            //***Relacionamento original
+            PessoaId = Telefone.Pessoa.Id;
 
             if (Telefone == null)
             {
@@ -38,6 +47,10 @@ namespace GoHorseWeb.Pages.Telefones
             }
             return Page();
         }
+
+        //***Itens necessários para gravação
+        [BindProperty]
+        public int PessoaId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -52,6 +65,10 @@ namespace GoHorseWeb.Pages.Telefones
 
             try
             {
+                //***Busca no contexto
+                Pessoa pessoa = _context.Pessoas.Find(PessoaId);
+                Telefone.Pessoa = pessoa;
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

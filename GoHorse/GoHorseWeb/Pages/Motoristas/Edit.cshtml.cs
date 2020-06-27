@@ -23,6 +23,9 @@ namespace GoHorseWeb.Pages.Motoristas
         [BindProperty]
         public Motorista Motorista { get; set; }
 
+        //***Cria a lista
+        public SelectList Enderecos { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -30,7 +33,13 @@ namespace GoHorseWeb.Pages.Motoristas
                 return NotFound();
             }
 
-            Motorista = await _context.Motoristas.FirstOrDefaultAsync(m => m.Id == id);
+            //***Busca no contexto
+            Enderecos = new SelectList(_context.Enderecos, "Id", "Tipo");
+            Motorista = await _context.Motoristas
+                .Include(Motorista => Motorista.Endereco)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            //***Relacionamento original
+            EnderecoId = Motorista.Endereco.Id;
 
             if (Motorista == null)
             {
@@ -38,6 +47,10 @@ namespace GoHorseWeb.Pages.Motoristas
             }
             return Page();
         }
+
+        //***Itens necessários para gravação
+        [BindProperty]
+        public int EnderecoId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -52,6 +65,10 @@ namespace GoHorseWeb.Pages.Motoristas
 
             try
             {
+                //***Itens necessarios para gravação
+                Endereco endereco = _context.Enderecos.Find(EnderecoId);
+                Motorista.Endereco = endereco;
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

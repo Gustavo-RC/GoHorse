@@ -28,7 +28,10 @@ namespace GoHorseWeb.Pages.Telefones
                 return NotFound();
             }
 
-            Telefone = await _context.Telefones.FirstOrDefaultAsync(m => m.Id == id);
+            //***Inclui para visualização
+            Telefone = await _context.Telefones
+                .Include(Telefone => Telefone.Pessoa)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Telefone == null)
             {

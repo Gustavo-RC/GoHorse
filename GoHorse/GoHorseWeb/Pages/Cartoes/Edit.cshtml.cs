@@ -23,6 +23,9 @@ namespace GoHorseWeb.Pages.Cartoes
         [BindProperty]
         public Cartao Cartao { get; set; }
 
+        //***Cria a lista de clientes
+        public SelectList Clientes { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -30,7 +33,13 @@ namespace GoHorseWeb.Pages.Cartoes
                 return NotFound();
             }
 
-            Cartao = await _context.Cartoes.FirstOrDefaultAsync(m => m.Id == id);
+            //***Busca o cliente no contexto
+            Clientes = new SelectList(_context.Clientes, "Id", "Nome");
+            Cartao = await _context.Cartoes
+                .Include(Cartao => Cartao.Cliente)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            //***Relacionamento original
+            ClienteId = Cartao.Cliente.Id;
 
             if (Cartao == null)
             {
@@ -38,6 +47,10 @@ namespace GoHorseWeb.Pages.Cartoes
             }
             return Page();
         }
+
+        //***Itens necessários para gravação
+        [BindProperty]
+        public int ClienteId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -52,6 +65,10 @@ namespace GoHorseWeb.Pages.Cartoes
 
             try
             {
+                //***Itens necessarios para gravação
+                Cliente cliente = _context.Clientes.Find(ClienteId);
+                Cartao.Cliente = cliente;
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

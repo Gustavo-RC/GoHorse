@@ -23,7 +23,10 @@ namespace GoHorseWeb.Pages.Veiculos
 
         public async Task OnGetAsync()
         {
-            Veiculo = await _context.Veiculos.ToListAsync();
+            //***Inclui no contexto
+            Veiculo = await _context.Veiculos
+                .Include(Veiculo => Veiculo.Motorista)
+                .ToListAsync();
         }
     }
 }

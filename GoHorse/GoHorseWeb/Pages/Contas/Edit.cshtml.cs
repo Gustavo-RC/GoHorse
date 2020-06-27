@@ -23,6 +23,9 @@ namespace GoHorseWeb.Pages.Contas
         [BindProperty]
         public Conta Conta { get; set; }
 
+        //***Cria a lista
+        public SelectList Motoristas { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -30,7 +33,13 @@ namespace GoHorseWeb.Pages.Contas
                 return NotFound();
             }
 
-            Conta = await _context.Contas.FirstOrDefaultAsync(m => m.Id == id);
+            //***Busca no contexto
+            Motoristas = new SelectList(_context.Motoristas, "Id", "Nome");
+            Conta = await _context.Contas
+                .Include(Conta => Conta.Motorista)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            //***Relacionamento original
+            MotoristaId = Conta.Motorista.Id;
 
             if (Conta == null)
             {
@@ -38,6 +47,10 @@ namespace GoHorseWeb.Pages.Contas
             }
             return Page();
         }
+
+        //***Itens necessários para gravação
+        [BindProperty]
+        public int MotoristaId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -52,6 +65,10 @@ namespace GoHorseWeb.Pages.Contas
 
             try
             {
+                //***Itens necessarios para gravação
+                Motorista motorista = _context.Motoristas.Find(MotoristaId);
+                Conta.Motorista = motorista;
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

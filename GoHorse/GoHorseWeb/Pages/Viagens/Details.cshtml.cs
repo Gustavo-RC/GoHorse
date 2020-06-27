@@ -28,7 +28,13 @@ namespace GoHorseWeb.Pages.Viagens
                 return NotFound();
             }
 
-            Viagem = await _context.Viagens.FirstOrDefaultAsync(m => m.Id == id);
+            //***Inclui para visualização
+            Viagem = await _context.Viagens
+                .Include(Viagem => Viagem.Animal)
+                .Include(Viagem => Viagem.Veiculo)
+                .Include(Viagem => Viagem.EnderecoOrigem)
+                .Include(Viagem => Viagem.EnderecoOrigem)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Viagem == null)
             {

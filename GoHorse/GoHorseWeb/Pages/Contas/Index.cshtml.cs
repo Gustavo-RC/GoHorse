@@ -23,7 +23,10 @@ namespace GoHorseWeb.Pages.Contas
 
         public async Task OnGetAsync()
         {
-            Conta = await _context.Contas.ToListAsync();
+            //***Inclui no contexto
+            Conta = await _context.Contas
+                .Include(Conta => Conta.Motorista)
+                .ToListAsync();
         }
     }
 }

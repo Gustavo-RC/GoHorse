@@ -28,7 +28,10 @@ namespace GoHorseWeb.Pages.Paradas
                 return NotFound();
             }
 
-            Parada = await _context.Paradas.FirstOrDefaultAsync(m => m.Id == id);
+            //***Inclui para visualização
+            Parada = await _context.Paradas
+                .Include(Parada => Parada.Viagem)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Parada == null)
             {

@@ -21,11 +21,18 @@ namespace GoHorseWeb.Pages.Cartoes
 
         public IActionResult OnGet()
         {
+            //***Tras o cliente do contexto
+            Clientes = new SelectList(_context.Clientes, "Id", "Nome");
             return Page();
         }
 
         [BindProperty]
         public Cartao Cartao { get; set; }
+
+        //***Itens necessários para gravação
+        public SelectList Clientes { get; set; }
+        [BindProperty]
+        public int ClienteId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -35,6 +42,10 @@ namespace GoHorseWeb.Pages.Cartoes
             {
                 return Page();
             }
+
+            //***Busca o cliente no contexto
+            Cliente cliente = _context.Clientes.Find(ClienteId);
+            Cartao.Cliente = cliente;
 
             _context.Cartoes.Add(Cartao);
             await _context.SaveChangesAsync();

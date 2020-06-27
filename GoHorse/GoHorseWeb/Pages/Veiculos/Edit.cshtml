@@ -35,6 +35,12 @@
                 <span asp-validation-for="Veiculo.Placa" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label class="control-label" asp-for="MotoristaId">Motorista</label>
+                <select asp-for="MotoristaId" asp-items="Model.Motoristas" class="custom-select">
+                    <option value="">Selecione</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

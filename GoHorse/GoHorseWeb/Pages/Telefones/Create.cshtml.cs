@@ -21,11 +21,18 @@ namespace GoHorseWeb.Pages.Telefones
 
         public IActionResult OnGet()
         {
+            //***Tras do contexto
+            Pessoas = new SelectList(_context.Pessoas, "Id", "Nome");
             return Page();
         }
 
         [BindProperty]
         public Telefone Telefone { get; set; }
+
+        //***Itens necessários para gravação
+        public SelectList Pessoas { get; set; }
+        [BindProperty]
+        public int PessoaId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -35,6 +42,10 @@ namespace GoHorseWeb.Pages.Telefones
             {
                 return Page();
             }
+
+            //***Busca no contexto
+            Pessoa pessoa = _context.Pessoas.Find(PessoaId);
+            Telefone.Pessoa = pessoa;
 
             _context.Telefones.Add(Telefone);
             await _context.SaveChangesAsync();

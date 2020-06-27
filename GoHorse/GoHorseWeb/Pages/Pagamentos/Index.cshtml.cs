@@ -23,7 +23,12 @@ namespace GoHorseWeb.Pages.Pagamentos
 
         public async Task OnGetAsync()
         {
-            Pagamento = await _context.Pagamentos.ToListAsync();
+            //***Inclui no contexto
+            Pagamento = await _context.Pagamentos
+                .Include(Pagamento => Pagamento.Viagem)
+                .Include(Pagamento => Pagamento.Cartao)
+                .Include(Pagamento => Pagamento.Conta)
+                .ToListAsync();
         }
     }
 }

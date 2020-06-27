@@ -21,11 +21,19 @@ namespace GoHorseWeb.Pages.Veiculos
 
         public IActionResult OnGet()
         {
+            //***Tras do contexto
+            Motoristas = new SelectList(_context.Motoristas, "Id", "Nome");
             return Page();
+
         }
 
         [BindProperty]
         public Veiculo Veiculo { get; set; }
+
+        //***Itens necessários para gravação
+        public SelectList Motoristas { get; set; }
+        [BindProperty]
+        public int MotoristaId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -35,6 +43,10 @@ namespace GoHorseWeb.Pages.Veiculos
             {
                 return Page();
             }
+
+            //***Busca no contexto
+            Motorista motorista = _context.Motoristas.Find(MotoristaId);
+            Veiculo.Motorista = motorista;
 
             _context.Veiculos.Add(Veiculo);
             await _context.SaveChangesAsync();

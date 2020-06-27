@@ -23,6 +23,12 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Telefone.Descricao)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone.Pessoa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Telefone.Pessoa.Nome)
+        </dd>
     </dl>
 </div>
 <div>

@@ -33,40 +33,46 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Motorista[0].Email)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Motorista[0].Endereco.Tipo)
+                </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.Motorista)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NRegistroCnh)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ValidadeCnh)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CategoriaCnh)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cpf)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DataNascimento)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NRegistroCnh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValidadeCnh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriaCnh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataNascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco.Tipo)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

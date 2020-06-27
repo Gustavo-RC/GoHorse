@@ -23,7 +23,10 @@ namespace GoHorseWeb.Pages.Motoristas
 
         public async Task OnGetAsync()
         {
-            Motorista = await _context.Motoristas.ToListAsync();
+            //***Inclui no contexto
+            Motorista = await _context.Motoristas
+                .Include(Motorista => Motorista.Endereco)
+                .ToListAsync();
         }
     }
 }

@@ -26,31 +26,55 @@
             <th>
                 @Html.DisplayNameFor(model => model.Viagem[0].Status)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Viagem[0].Veiculo.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Viagem[0].Animal.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Viagem[0].EnderecoOrigem.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Viagem[0].EnderecoDestino.Tipo)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.Viagem)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataOrigem)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataDestino)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ValorViagem)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataOrigem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDestino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorViagem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Veiculo.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Animal.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnderecoOrigem.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnderecoDestino.Tipo)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

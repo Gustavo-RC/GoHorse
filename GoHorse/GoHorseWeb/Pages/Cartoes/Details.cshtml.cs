@@ -28,7 +28,10 @@ namespace GoHorseWeb.Pages.Cartoes
                 return NotFound();
             }
 
-            Cartao = await _context.Cartoes.FirstOrDefaultAsync(m => m.Id == id);
+            //***Inclui o cliente para visualização
+            Cartao = await _context.Cartoes
+                .Include(Cartao => Cartao.Cliente)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Cartao == null)
             {

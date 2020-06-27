@@ -23,6 +23,9 @@ namespace GoHorseWeb.Pages.Paradas
         [BindProperty]
         public Parada Parada { get; set; }
 
+        //***Cria a lista
+        public SelectList Viagens { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -30,7 +33,13 @@ namespace GoHorseWeb.Pages.Paradas
                 return NotFound();
             }
 
-            Parada = await _context.Paradas.FirstOrDefaultAsync(m => m.Id == id);
+            //***Busca no contexto
+            Viagens = new SelectList(_context.Viagens, "Id", "Status");
+            Parada = await _context.Paradas
+                .Include(Parada => Parada.Viagem)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            //***Relacionamento original
+            ViagemId = Parada.Viagem.Id;
 
             if (Parada == null)
             {
@@ -38,6 +47,10 @@ namespace GoHorseWeb.Pages.Paradas
             }
             return Page();
         }
+
+        //***Itens necessários para gravação
+        [BindProperty]
+        public int ViagemId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -52,6 +65,10 @@ namespace GoHorseWeb.Pages.Paradas
 
             try
             {
+                //***Busca no contexto
+                Viagem viagem = _context.Viagens.Find(ViagemId);
+                Parada.Viagem = viagem;
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

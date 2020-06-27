@@ -23,7 +23,13 @@ namespace GoHorseWeb.Pages.Viagens
 
         public async Task OnGetAsync()
         {
-            Viagem = await _context.Viagens.ToListAsync();
+            //***Inclui no contexto
+            Viagem = await _context.Viagens
+                .Include(Viagem => Viagem.Veiculo)
+                .Include(Viagem => Viagem.Animal)
+                .Include(Viagem => Viagem.EnderecoOrigem)
+                .Include(Viagem => Viagem.EnderecoDestino)
+                .ToListAsync();
         }
     }
 }

@@ -23,6 +23,11 @@ namespace GoHorseWeb.Pages.Pagamentos
         [BindProperty]
         public Pagamento Pagamento { get; set; }
 
+        //***Cria a lista
+        public SelectList Viagens { get; set; }
+        public SelectList Cartoes { get; set; }
+        public SelectList Contas { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -30,7 +35,19 @@ namespace GoHorseWeb.Pages.Pagamentos
                 return NotFound();
             }
 
-            Pagamento = await _context.Pagamentos.FirstOrDefaultAsync(m => m.Id == id);
+            //***Busca no contexto
+            Viagens = new SelectList(_context.Viagens, "Id", "Status");
+            Cartoes = new SelectList(_context.Cartoes, "Id", "Nome");
+            Contas = new SelectList(_context.Contas, "Id", "Agencia");
+            Pagamento = await _context.Pagamentos
+                .Include(Pagamento => Pagamento.Viagem)
+                .Include(Pagamento => Pagamento.Cartao)
+                .Include(Pagamento => Pagamento.Conta)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            //***Relacionamento original
+            ViagemId = Pagamento.Viagem.Id;
+            CartaoId = Pagamento.Cartao.Id;
+            ContaId = Pagamento.Conta.Id;
 
             if (Pagamento == null)
             {
@@ -38,6 +55,14 @@ namespace GoHorseWeb.Pages.Pagamentos
             }
             return Page();
         }
+
+        //***Itens necessários para gravação
+        [BindProperty]
+        public int ViagemId { get; set; }
+        [BindProperty]
+        public int CartaoId { get; set; }
+        [BindProperty]
+        public int ContaId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -52,6 +77,14 @@ namespace GoHorseWeb.Pages.Pagamentos
 
             try
             {
+                //***Busca no contexto
+                Viagem viagem = _context.Viagens.Find(ViagemId);
+                Pagamento.Viagem = viagem;
+                Cartao cartao = _context.Cartoes.Find(CartaoId);
+                Pagamento.Cartao = cartao;
+                Conta conta = _context.Contas.Find(ContaId);
+                Pagamento.Conta = conta;
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

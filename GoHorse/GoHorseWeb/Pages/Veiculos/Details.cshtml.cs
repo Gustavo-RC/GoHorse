@@ -28,7 +28,10 @@ namespace GoHorseWeb.Pages.Veiculos
                 return NotFound();
             }
 
-            Veiculo = await _context.Veiculos.FirstOrDefaultAsync(m => m.Id == id);
+            //***Inclui para visualização
+            Veiculo = await _context.Veiculos
+                .Include(Veiculo => Veiculo.Motorista)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Veiculo == null)
             {

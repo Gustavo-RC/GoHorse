@@ -36,6 +36,30 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Viagem.Status)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Viagem.Veiculo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Viagem.Veiculo.Marca)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Viagem.Animal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Viagem.Animal.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Viagem.EnderecoOrigem)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Viagem.EnderecoOrigem.Tipo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Viagem.EnderecoDestino)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Viagem.EnderecoDestino.Tipo)
+        </dd>
     </dl>
 </div>
 <div>

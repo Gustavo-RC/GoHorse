@@ -21,11 +21,19 @@ namespace GoHorseWeb.Pages.Paradas
 
         public IActionResult OnGet()
         {
+            //***Tras do contexto
+            Viagens = new SelectList(_context.Viagens, "Id", "Status");
+
             return Page();
         }
 
         [BindProperty]
         public Parada Parada { get; set; }
+
+        //***Itens necessários para gravação
+        public SelectList Viagens { get; set; }
+        [BindProperty]
+        public int ViagemId { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -35,6 +43,10 @@ namespace GoHorseWeb.Pages.Paradas
             {
                 return Page();
             }
+
+            //***Busca no contexto
+            Viagem viagem = _context.Viagens.Find(ViagemId);
+            Parada.Viagem = viagem;
 
             _context.Paradas.Add(Parada);
             await _context.SaveChangesAsync();

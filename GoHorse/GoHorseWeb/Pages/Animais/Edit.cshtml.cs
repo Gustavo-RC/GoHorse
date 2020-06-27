@@ -23,6 +23,7 @@ namespace GoHorseWeb.Pages.Animais
         [BindProperty]
         public Animal Animal { get; set; }
 
+        //***Cria a lista de clientes
         public SelectList Clientes { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -32,24 +33,22 @@ namespace GoHorseWeb.Pages.Animais
                 return NotFound();
             }
 
+            //***Busca o cliente no contexto
             Clientes = new SelectList(_context.Clientes, "Id", "Nome");
-
             Animal = await _context.Animais
                 .Include(Animal => Animal.Cliente)
                 .FirstOrDefaultAsync(m => m.Id == id);
+            //***Relacionamento original
+            ClienteId = Animal.Cliente.Id;
 
             if (Animal == null)
             {
                 return NotFound();
             }
-
-            //Relacionamento original
-            ClienteId = Animal.Cliente.Id;
-
             return Page();
         }
 
-        //Itens necessários para gravação
+        //***Itens necessários para gravação
         [BindProperty]
         public int ClienteId { get; set; }
 
@@ -66,7 +65,7 @@ namespace GoHorseWeb.Pages.Animais
 
             try
             {
-                //Itens necessarios para gravação
+                //***Itens necessarios para gravação
                 Cliente cliente = _context.Clientes.Find(ClienteId);
                 Animal.Cliente = cliente;
 

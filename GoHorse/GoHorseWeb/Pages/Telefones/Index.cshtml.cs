@@ -23,7 +23,10 @@ namespace GoHorseWeb.Pages.Telefones
 
         public async Task OnGetAsync()
         {
-            Telefone = await _context.Telefones.ToListAsync();
+            //***Inclui no contexto
+            Telefone = await _context.Telefones
+                .Include(Telefone => Telefone.Pessoa)
+                .ToListAsync();
         }
     }
 }

@@ -23,7 +23,10 @@ namespace GoHorseWeb.Pages.Paradas
 
         public async Task OnGetAsync()
         {
-            Parada = await _context.Paradas.ToListAsync();
+            //***Inclui no contexto
+            Parada = await _context.Paradas
+                .Include(Parada => Parada.Viagem)
+                .ToListAsync();
         }
     }
 }

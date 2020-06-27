@@ -13,12 +13,30 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pagamento[0].Viagem.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pagamento[0].Cartao.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pagamento[0].Conta.Agencia)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Pagamento) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Viagem.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cartao.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conta.Agencia)
+            </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |

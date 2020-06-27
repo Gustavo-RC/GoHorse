@@ -23,7 +23,10 @@ namespace GoHorseWeb.Pages.Clientes
 
         public async Task OnGetAsync()
         {
-            Cliente = await _context.Clientes.ToListAsync();
+            //***Inclui no contexto
+            Cliente = await _context.Clientes
+                .Include(Cliente => Cliente.Endereco)
+                .ToListAsync();
         }
     }
 }
