@@ -34,25 +34,27 @@
             <nav id="nav">
                 <ul>
                     <li class="nav-item"><a class="nav-link" asp-page="/Index">Go Home</a></li>
-                    <li>
-                        <a>Cadastros</a>
-                        <ul>
-                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Animais/Index">Animais</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Cartoes/Index">Cartoes</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Clientes/Index">Clientes</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Contas/Index">Contas</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Enderecos/Index">Enderecos</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Motoristas/Index">Motoristas</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Pagamentos/Index">Pagamentos</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Paradas/Index">Paradas</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Telefones/Index">Telefones</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Veiculos/Index">Veiculos</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark" asp-page="/Viagens/Index">Viagens</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" asp-page="/Sobre">Sobre</a></li>
-                    <li class="nav-item"><partial name="_LoginPartial" /></li>
-                </ul>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a>Cadastros</a>
+                            <ul>
+                                <li class="nav-item"><a class="nav-link text-dark" asp-page="/Cadastros/Animais/Index">Animais</a></li>
+                                <li class="nav-item"><a class="nav-link text-dark" asp-page="/Cadastros/Cartoes/Index">Cartoes</a></li>
+                                <li class="nav-item"><a class="nav-link text-dark" asp-page="/Cadastros/Clientes/Index">Clientes</a></li>
+                                <li class="nav-item"><a class="nav-link text-dark" asp-page="/Cadastros/Contas/Index">Contas</a></li>
+                                <li class="nav-item"><a class="nav-link text-dark" asp-page="/Cadastros/Enderecos/Index">Enderecos</a></li>
+                                <li class="nav-item"><a class="nav-link text-dark" asp-page="/Cadastros/Motoristas/Index">Motoristas</a></li>
+                                <li class="nav-item"><a class="nav-link text-dark" asp-page="/Cadastros/Pagamentos/Index">Pagamentos</a></li>
+                                <li class="nav-item"><a class="nav-link text-dark" asp-page="/Cadastros/Paradas/Index">Paradas</a></li>
+                                <li class="nav-item"><a class="nav-link text-dark" asp-page="/Cadastros/Telefones/Index">Telefones</a></li>
+                                <li class="nav-item"><a class="nav-link text-dark" asp-page="/Cadastros/Veiculos/Index">Veiculos</a></li>
+                                <li class="nav-item"><a class="nav-link text-dark" asp-page="/Cadastros/Viagens/Index">Viagens</a></li>
+                            </ul>
+                        </li>}
+                        <li class="nav-item"><a class="nav-link" asp-page="/Sobre">Sobre</a></li>
+                        <li class="nav-item"><partial name="_LoginPartial" /></li>
+                    </ul>
             </nav>
         </div>
 

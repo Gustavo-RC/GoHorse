@@ -1,4 +1,5 @@
 ﻿using GoHorseClassLibrary;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,8 @@ using System.Text;
 
 namespace GoHorseDAL
 {
-    public class GoHorseContext : DbContext
+    public class GoHorseContext : IdentityDbContext
+
     {
         public DbSet<Animal> Animais { get; set; }
         public DbSet<Cartao> Cartoes { get; set; }
