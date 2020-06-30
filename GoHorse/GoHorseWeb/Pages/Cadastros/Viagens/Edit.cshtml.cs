@@ -46,7 +46,7 @@ namespace GoHorseWeb.Pages.Viagens
                 .Include(Viagem => Viagem.Animal)
                 .Include(Viagem => Viagem.Veiculo)
                 .Include(Viagem => Viagem.EnderecoOrigem)
-                .Include(Viagem => Viagem.EnderecoOrigem)
+                .Include(Viagem => Viagem.EnderecoDestino)
                 .FirstOrDefaultAsync(m => m.Id == id);
             //***Relacionamento original
             VeiculoId = Viagem.Veiculo.Id;
